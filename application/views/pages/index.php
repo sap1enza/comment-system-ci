@@ -1,4 +1,3 @@
-
 <div class="comment-container">
 	<div class="media comment-box">
 	<div class="media-left">

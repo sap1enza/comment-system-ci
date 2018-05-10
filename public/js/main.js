@@ -1,11 +1,12 @@
 $(document).ready(function () {
 
-	$("#signForm").submit(function () {
+	$("#signForm").submit(function (e) {
+        e.preventDefault();
     	var form = $(this).serialize();
     	var ajax = $.ajax({
     		method: "POST",
     		data: form,
-    		url: "User/newUser/",
+    		url: "Users/newUser/",
     		dataType: "json",
     		success: function(e){
     			if(e['status'] == false){
@@ -20,14 +21,4 @@ $(document).ready(function () {
     	});
         return false;
     });
-
-    $('#logForm').submit(function() {
-    	var form = $(this).serialize();
-    	var ajax = $.ajax({
-    		method: "POST",
-    		data: form,
-    		url: "User/auth/"
-    	});
-    });
-
 });

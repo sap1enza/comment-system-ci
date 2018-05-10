@@ -20,25 +20,25 @@
 			<ul class="navbar-nav mr-auto">  				
 				
 				<li class="userdata">  					  						
-					<span class="btn btn-light">Home</span> 				
+					<a class="btn btn-light" href="<?= base_url(); ?>">Home</a> 				
 				</li>
 				
-				<?php if($this->session->userdata("logged")) : ?>
+				<?php if($this->session->userdata("user")['logged']) : ?>
 					<li class="userdata">  					  						
-						<span class="btn btn-light">Novo Comentário</span> 				
+						<a class="btn btn-light" href="<?= base_url('pages/new/comment') ?>">Novo Comentário</a> 				
 					</li>
 				<?php endif ?>
 
 			</ul>
 			<div>
 				<li class="userdata">
-					<?php if($this->session->userdata("logged")) : ?>		
-						<span class="btn">Olá, <b><?= $this->session->userdata("firstname") ?></b></span>
-						<a href="User/logout" class="btn btn-sm btn-danger">Sair</a>  							
+					<?php if($this->session->userdata("user")['logged']) : ?>		
+						<span class="btn">Olá, <b><?= $this->session->userdata("user")['firstname'] ?></b></span>
+						<a href="Users/logout" class="btn btn-sm btn-danger">Sair</a>  							
 					<?php else: ?>
 						<!-- FORM LOGIN -->
 						<?php print_r($this->session->tempdata('logform')); ?>
-						<form id="logForm" method="POST">
+						<form id="logForm" action="Users/auth/" method="POST"> 
 							
 							<div class="form-row">
 								<div class="col-auto">
