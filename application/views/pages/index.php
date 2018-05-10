@@ -1,18 +1,5 @@
-<div class="comment-container">
-	<div class="media comment-box">
-	<div class="media-left">
-		<a href="#">
-			<img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
-		</a>
-	</div>
-	<div class="media-body">
-		<h5 class="media-heading">Lucas Sapienza</h5>
-		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essen</p>
 
-	</div>
-</div>
-</div>
-
+<div id="comments"></div>
 
 
 <!-- Modal -->
