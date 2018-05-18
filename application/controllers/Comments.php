@@ -32,7 +32,7 @@ class Comments extends CI_Controller {
 	}
 
 	public function pullAll() {
-		echo json_encode($this->Comments_model->pullAll());
+		return $this->Comments_model->pullAll();
 	}
 
 }

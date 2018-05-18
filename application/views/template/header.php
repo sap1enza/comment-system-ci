@@ -47,12 +47,13 @@
 								<div class="col-auto">
 									<input type="password" class="form-control" placeholder="Senha" id="lgSenha" name="senha">
 								</div>
-								<div class="col-auto">
-									<button type="button" class="btn btn-success" data-toggle="modal" data-target="#signupModal" id="btnSignupModal">Cadastrar-se</button>
-								</div>
 								<div class="col">
 									<button type="submit" class="btn btn-primary">Entrar</button>
 								</div>
+								<div class="col-auto">
+									<button type="button" class="btn btn-success" data-toggle="modal" data-target="#signupModal" id="btnSignupModal">Cadastrar-se</button>
+								</div>
+								
 							</div>
 						</form>
 						

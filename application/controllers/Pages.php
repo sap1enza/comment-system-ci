@@ -3,6 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Pages extends CI_Controller {
 
+	public function __construct() {
+		parent::__construct();
+		$this->load->model("Comments_model");
+	}
+
 	public function loadView($view, $data = false) {
 		$this->load->view("template/header");
 		$this->load->view($view, $data);
@@ -10,7 +15,8 @@ class Pages extends CI_Controller {
 	}
 
 	public function index() {
-		$this->loadView("pages/index");
+		$comentarios = $this->Comments_model->pullAll();		
+		$this->loadView("pages/index", array("comentarios"=>$comentarios));
 	}
 
 	public function new($what) {

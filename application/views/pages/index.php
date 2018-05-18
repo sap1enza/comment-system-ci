@@ -1,5 +1,25 @@
 
-<div id="comments"></div>
+<div id="comments">
+
+	<?php 
+		foreach($comentarios as $comentario) {
+			echo "<div class='comment-container'>";
+			echo "<div class='media comment-box'>";
+			echo "<div class='media-left'>";
+			echo "<img class='img-responsive user-photo' src='https://ssl.gstatic.com/accounts/ui/avatar_2x.png'>";
+			echo "</div>";
+			echo "<div class='media-body'>";
+			echo "<h5 class='media-heading'>" . $comentario['nome'] . "<small> " . $comentario['time_create'] . "</small>" ."</h5>";
+			echo "<p>" . $comentario['comentario'] ;
+			if($this->session->userdata("user")['logged']) { echo " <a href='#'>Editar</a>" . "</p>";} ;
+			echo "</div> </div>";
+		}
+
+	?>
+
+
+
+</div>
 
 
 <!-- Modal -->
