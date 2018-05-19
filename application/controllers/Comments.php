@@ -31,6 +31,28 @@ class Comments extends CI_Controller {
 		}
 	}
 
+	public function del($id) {
+		$user 		= $this->session->userdata("user");
+		$comentario = $this->Comments_model->pull($id);
+
+		if($user['logged'] && $user['id'] == $comentario['id_autor']) {
+			$this->Comments_model->del($id);
+			redirect('/', 'refresh');
+			return;
+		}
+	}
+
+	public function edit() {
+		
+		$comentario 	= $this->input->post('comentario');
+		$comentario_id	= $this->input->post('comentario_id');
+		$comentario = array("comentario" => $comentario, "comentario_id" => $comentario_id);
+
+		$this->Comments_model->push($comentario, true);
+		redirect('/', 'refresh');
+
+	}
+
 	public function pullAll() {
 		return $this->Comments_model->pullAll();
 	}

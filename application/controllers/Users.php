@@ -29,6 +29,37 @@ class Users extends CI_Controller {
 		}
 	}
 
+	public function update() {
+				
+		$senha = (!empty($_POST['senha'])) ? true : false;
+		$user = array(
+			"nome" => $this->input->post("nome"),
+			"email" => $this->input->post("email")
+		);
+		if($senha) { 
+			$user['senha'] = md5($this->input->post("senha"));
+		};
+		
+
+		$name = explode(" ",$this->input->post("nome"));
+		$firstname = $name[0];
+		$dados = array(
+				"logged" => true,
+				"id" => $this->input->post("id_user"),
+				"name" => ucwords($this->input->post("nome")),
+				"firstname" => ucwords($firstname),
+				"email" => $this->input->post("email")
+			);
+		
+
+		$this->session->set_userdata("user", $dados);
+
+		$this->User_model->pushUser($user, $this->input->post("id_user"));
+
+		redirect('/', 'refresh');
+		return;
+	}
+
 	public function auth() {
 
 		$email = $this->input->post("email");
@@ -43,8 +74,7 @@ class Users extends CI_Controller {
 				"id" => $user['id'],
 				"name" => ucwords($user['nome']),
 				"firstname" => ucwords($firstname),
-				"email" => $user['email'],
-				"sexo" => $user['sexo']
+				"email" => $user['email']
 			);
 			$this->session->set_userdata("user", $dados);										
 		} else {

@@ -34,6 +34,7 @@
 				<li class="userdata">
 					<?php if($this->session->userdata("user")['logged']) : ?>		
 						<span class="btn">Olá, <b><?= $this->session->userdata("user")['firstname'] ?></b></span>
+						<a href="<?= base_url("pages/editUser/". $this->session->userdata("user")['id']) ?>" class="btn btn-sm btn-primary">Perfil</a>  			
 						<a href="<?= base_url("Users/logout") ?>" class="btn btn-sm btn-danger">Sair</a>  							
 					<?php else: ?>
 						<!-- FORM LOGIN -->

@@ -6,13 +6,21 @@
 			echo "<div class='comment-container'>";
 			echo "<div class='media comment-box'>";
 			echo "<div class='media-left'>";
-			echo "<img class='img-responsive user-photo' src='https://ssl.gstatic.com/accounts/ui/avatar_2x.png'>";
+			echo "<img class='img-responsive user-photo' src='https://ssl.gstatic.com/accounts/ui/avatar_2x.png'>";	
 			echo "</div>";
 			echo "<div class='media-body'>";
-			echo "<h5 class='media-heading'>" . $comentario['nome'] . "<small> " . $comentario['time_create'] . "</small>" ."</h5>";
-			echo "<p>" . $comentario['comentario'] ;
-			if($this->session->userdata("user")['logged']) { echo " <a href='#'>Editar</a>" . "</p>";} ;
-			echo "</div> </div>";
+			echo "<h5 class='media-heading'>" . $comentario['nome'] . "<small> " . $comentario['time_create'] . "</small>";
+			if($this->session->userdata("user")['logged'] && $this->session->userdata("user")['id'] == $comentario['id_autor']) { 
+				echo "<div style='font-size: 14px; float: right; margin: 5px'>";
+				echo "<a href=" . base_url("pages/editComment/".$comentario['id']) ." class='btn-primary' style='padding: 3px; border-radius: 5px; padding: 4px 7px; margin: 0px 3px'>Editar</a>";
+				echo "<a href=" . base_url("comments/del/".$comentario['id']) . " class='btn-danger' style='padding: 3px; border-radius: 5px; padding: 4px 7px; margin: 0px 3px'>Apagar</a>";
+				echo "</div>";
+				
+			};	
+			echo  "</h5>";
+			echo "<p>" . $comentario['comentario'] ;			
+			echo "</p></div> </div>";		
+
 		}
 
 	?>
